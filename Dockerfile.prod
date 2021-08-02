@@ -1,0 +1,13 @@
+FROM node:16.2-slim as frontend
+
+WORKDIR /home/node/app
+
+COPY --chown=node frontend .
+
+RUN npm install
+
+RUN npm run build
+
+FROM quay.io/keycloak/keycloak:latest
+
+COPY --from=frontend /home/node/app/build/. /opt/jboss/keycloak/themes

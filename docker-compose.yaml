@@ -1,0 +1,74 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    container_name: keycloak
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_IMPORT=/tmp/test-realm-export.json
+      - JAVA_OPTS_APPEND=-Dkeycloak.profile.feature.upload_scripts=enabled -Dkeycloak.profile.feature.admin_fine_grained_authz=enabled -Dkeycloak.profile.feature.token_exchange=enabled
+      - DB_ADDR=db
+      - DB_VENDOR=mysql
+      - DB_DATABASE=auth
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=root
+    volumes:
+      - ./frontend/build/keycloak.v3:/opt/jboss/keycloak/themes/keycloak.v3
+      - ./keycloak/config/standalone-ha.xml:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+      - ./keycloak/test-realm-export.json:/tmp/test-realm-export.json
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      default:
+        aliases:
+          - app.test
+
+  db:
+    image: mysql:8
+    container_name: keycloak-db
+    restart: always
+    tty: true
+    volumes:
+      - ./.docker/mysql/dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=auth
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - default
+
+  frontend:
+    build: ./frontend
+    entrypoint: ./.docker/entrypoint.sh
+    container_name: keycloak-frontend
+    tty: true
+    volumes:
+      - ./frontend:/home/node/app
+    networks:
+      - default      
+
+  # test:
+  #   build: ./tests
+  #   entrypoint: ./.docker/entrypoint.sh
+  #   container_name: micro-auth-test
+  #   tty: true
+  #   volumes:
+  #     - ./tests:/home/node/app
+  #   networks:
+  #     - default
+    
+  # selenium:
+  #   image: selenium/standalone-chrome:91.0-chromedriver-91.0-20210527
+  #   container_name: micro-auth-selenium
+  #   expose:
+  #     - 4444   
+  #   networks:
+  #     - default
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,3 @@
+.history/
+.docker/mysql/dbdata/
+tests/node_modules

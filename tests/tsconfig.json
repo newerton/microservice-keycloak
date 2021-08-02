@@ -1,0 +1,11 @@
+{
+  "compileOptions": {
+    "types": [
+      "jest",
+      "node",
+      "selenium-webdriver"
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
