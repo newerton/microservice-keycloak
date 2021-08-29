@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: nestjs-k8s-namespace
+  name: keycloak
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: keycloak
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: nestjs-k8s-namespace
+  name: keycloak
+  labels:
+    app: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      initContainers:
+        - name: init-db-wait
+          image: busybox:1.30.1
+          imagePullPolicy: IfNotPresent
+          command: ['sh', '-c', 'until nc -w3 -z mysql 3306; do echo waiting for database; sleep 3; done;']
+      containers:
+        - name: keycloak
+          image: quay.io/keycloak/keycloak:15.0.2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: https
+              containerPort: 8443
+          envFrom:
+            - secretRef:
+                name: keycloak-k8s-secret
+          volumeMounts:
+            - name: keycloak-ha-config
+              mountPath: /opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+              subPath: standalone-ha.xml
+            - name: keycloak-import-config
+              mountPath: /tmp/test-realm-import.json
+              subPath: test-realm-import.json
+          readinessProbe:
+            httpGet:
+              path: /auth/realms/master
+              port: 8080
+      volumes:
+        - name: keycloak-ha-config
+          configMap:
+            name: keycloak-ha-conf
+        - name: keycloak-import-config
+          configMap:
+            name: keycloak-import-conf
+            items:
+              - key: test-realm-import.json
+                path: test-realm-import.json
