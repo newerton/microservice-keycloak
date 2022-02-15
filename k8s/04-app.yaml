@@ -4,10 +4,9 @@ metadata:
   namespace: nestjs-k8s-namespace
   name: keycloak
 spec:
-  type: ClusterIP
   ports:
     - name: http
-      port: 8080
+      port: 80
       targetPort: 8080
   selector:
     app: keycloak
@@ -33,10 +32,15 @@ spec:
         - name: init-db-wait
           image: busybox:1.30.1
           imagePullPolicy: IfNotPresent
-          command: ['sh', '-c', 'until nc -w3 -z mysql 3306; do echo waiting for database; sleep 3; done;']
+          command:
+            [
+              "sh",
+              "-c",
+              "until nc -w3 -z mysql 3306; do echo waiting for database; sleep 3; done;",
+            ]
       containers:
         - name: keycloak
-          image: quay.io/keycloak/keycloak:15.0.2
+          image: quay.io/keycloak/keycloak:16.1.1
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
@@ -54,6 +58,10 @@ spec:
               mountPath: /tmp/test-realm-import.json
               subPath: test-realm-import.json
           readinessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 3
             httpGet:
               path: /auth/realms/master
               port: 8080
