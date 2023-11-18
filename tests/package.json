@@ -12,7 +12,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^15.6.1",
     "@types/selenium-webdriver": "^4.0.13",
-    "chromedriver": "^90.0.1",
+    "chromedriver": "^119.0.1",
     "express-session": "^1.17.2",
     "jest": "^27.0.3",
     "keycloak-connect": "^21.0.1",
