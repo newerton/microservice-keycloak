@@ -1,7 +1,7 @@
 apiVersion: skaffold/v1
 kind: Config
 metadata:
-  name: dev-k8s-keycloak
+  name: mktplace-develop-keycloak
 build:
   local:
     push: false
@@ -18,7 +18,7 @@ deploy:
   # kubeContext: docker-desktop
   kubectl:
     flags:
-      global: [--namespace=nestjs-k8s-namespace]
+      global: [--namespace=mktplace-develop]
     manifests:
       - ./k8s/01-secrets.yaml
       - ./k8s/02-configmap-import.json.yaml
