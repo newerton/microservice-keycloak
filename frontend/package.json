@@ -70,7 +70,7 @@
     "url-loader": "4.1.1",
     "web-vitals": "^5.1.0",
     "webpack": "^5.105.0",
-    "webpack-dev-server": "^5.2.2",
+    "webpack-dev-server": "^5.2.4",
     "webpack-manifest-plugin": "^5.0.1",
     "workbox-webpack-plugin": "^7.4.1"
   },
