@@ -1,19 +1,19 @@
-process.env.BABEL_ENV = "development";
-process.env.NODE_ENV = "development";
+process.env.BABEL_ENV = 'development';
+process.env.NODE_ENV = 'development';
 
-process.on("unhandledRejection", (err) => {
+process.on('unhandledRejection', (err) => {
   throw err;
 });
 
-require("../config/env");
+require('../config/env');
 
-const fs = require("fs");
-const chalk = require("react-dev-utils/chalk");
-const webpack = require("webpack");
-const { createCompiler } = require("../config/WebpackDevServerUtils");
-const paths = require("../config/paths");
-const configFactory = require("../config/webpack.config");
-const makeCommonResources = require("./_make-common-resources");
+const fs = require('node:fs');
+const chalk = require('react-dev-utils/chalk');
+const webpack = require('webpack');
+const { createCompiler } = require('../config/WebpackDevServerUtils');
+const paths = require('../config/paths');
+const configFactory = require('../config/webpack.config');
+const makeCommonResources = require('./_make-common-resources');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 
@@ -21,31 +21,31 @@ if (process.env.HOST) {
   console.log(
     chalk.cyan(
       `Attempting to bind to HOST environment variable: ${chalk.yellow(
-        chalk.bold(process.env.HOST)
-      )}`
-    )
+        chalk.bold(process.env.HOST),
+      )}`,
+    ),
   );
   console.log(
-    `If this was unintentional, check that you haven't mistakenly set it in your shell.`
+    `If this was unintentional, check that you haven't mistakenly set it in your shell.`,
   );
   console.log(
-    `Learn more here: ${chalk.yellow("https://cra.link/advanced-config")}`
+    `Learn more here: ${chalk.yellow('https://cra.link/advanced-config')}`,
   );
   console.log();
 }
 
-const config = configFactory("development");
+const config = configFactory('development');
 const appName = require(paths.appPackageJson).name;
 
 const useTypeScript = fs.existsSync(paths.appTsConfig);
-const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === "true";
+const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true';
 
 createCompiler({
   appName,
   config,
   devSocket: { errors: () => {}, warnings: () => {} },
   urls: {
-    localUrlForTerminal: "Only compiled",
+    localUrlForTerminal: 'Only compiled',
   },
   useYarn,
   useTypeScript,
@@ -63,7 +63,7 @@ createCompiler({
         children: false,
         chunks: false,
         colors: true,
-      })
+      }),
     );
   }
 

@@ -25,21 +25,21 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="uploadKeyAlias">{{:: 'key-alias' | translate}}</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" id="uploadKeyAlias" name="uploadKeyAlias" data-ng-model="uploadKeyAlias" autofocus required>
+                    <input class="form-control" type="text" id="uploadKeyAlias" name="uploadKeyAlias" data-ng-model="uploadKeyAlias" required>
                 </div>
                 <kc-tooltip>{{:: 'key-alias.tooltip' | translate}}</kc-tooltip>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" for="uploadKeyPas">{{:: 'key-password' | translate}}</label>
                 <div class="col-md-6">
-                    <input class="form-control" kc-password id="uploadKeyPas" name="uploadKeyPassword" data-ng-model="uploadKeyPassword" autofocus required>
+                    <input class="form-control" kc-password id="uploadKeyPas" name="uploadKeyPassword" data-ng-model="uploadKeyPassword" required>
                 </div>
                 <kc-tooltip>{{:: 'key-password.tooltip' | translate}}</kc-tooltip>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" for="uploadStorePas">{{:: 'store-password' | translate}}</label>
                 <div class="col-md-6">
-                    <input class="form-control" kc-password id="uploadStorePas" name="uploadStorePas" data-ng-model="uploadStorePassword" autofocus required>
+                    <input class="form-control" kc-password id="uploadStorePas" name="uploadStorePas" data-ng-model="uploadStorePassword" required>
                 </div>
                 <kc-tooltip>{{:: 'store-password.tooltip' | translate}}</kc-tooltip>
             </div>
@@ -77,28 +77,28 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="keyAlias">Key Alias</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" id="keyAlias" name="keyAlias" data-ng-model="jks.keyAlias" autofocus required>
+                    <input class="form-control" type="text" id="keyAlias" name="keyAlias" data-ng-model="jks.keyAlias" required>
                 </div>
                 <kc-tooltip>Archive alias for your private key and certificate.</kc-tooltip>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" for="keyPas">Key Password</label>
                 <div class="col-md-6">
-                    <input class="form-control" kc-password id="keyPas" name="keyPas" data-ng-model="jks.keyPassword" autofocus required>
+                    <input class="form-control" kc-password id="keyPas" name="keyPas" data-ng-model="jks.keyPassword" required>
                 </div>
                 <kc-tooltip>Password to access the private key in the archive</kc-tooltip>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" for="realmAlias">Realm Certificate Alias</label>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" id="realmAlias" name="realmAlias" data-ng-model="jks.realmAlias" autofocus required>
+                    <input class="form-control" type="text" id="realmAlias" name="realmAlias" data-ng-model="jks.realmAlias" required>
                 </div>
                 <kc-tooltip>Realm certificate is stored in archive too.  This is the alias to it.</kc-tooltip>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label" for="storePas">Store Password</label>
                 <div class="col-md-6">
-                    <input class="form-control" kc-password id="storePas" name="storePas" data-ng-model="jks.storePassword" autofocus required>
+                    <input class="form-control" kc-password id="storePas" name="storePas" data-ng-model="jks.storePassword" required>
                 </div>
                 <kc-tooltip>Password to access the archive itself</kc-tooltip>
            </div>

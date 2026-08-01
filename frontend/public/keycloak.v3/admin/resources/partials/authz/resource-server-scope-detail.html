@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="name">{{:: 'name' | translate}} </label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="text" id="name" name="name" data-ng-model="scope.name" autofocus data-ng-blur="checkNewNameAvailability()">
+                    <input class="form-control" type="text" id="name" name="name" data-ng-model="scope.name" data-ng-blur="checkNewNameAvailability()">
                 </div>
                 <kc-tooltip>{{:: 'authz-scope-name.tooltip' | translate}}</kc-tooltip>
             </div>
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="name">{{:: 'authz-icon-uri' | translate}} </label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="text" id="iconUri" name="name" data-ng-model="scope.iconUri" autofocus>
+                    <input class="form-control" type="text" id="iconUri" name="name" data-ng-model="scope.iconUri" >
                 </div>
                 <kc-tooltip>{{:: 'authz-icon-uri.tooltip' | translate}}</kc-tooltip>
             </div>

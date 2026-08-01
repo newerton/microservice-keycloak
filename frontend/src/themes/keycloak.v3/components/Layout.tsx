@@ -1,14 +1,14 @@
 import {
   Box,
   Container,
-  makeStyles,
-  Theme,
+  type Theme,
   Typography,
-} from "@material-ui/core";
-import Copyright from "./Copyright";
-import LocaleSelect from "./LocaleSelect";
-import logo from "../../../static/logo.png";
-import Alert, { Color } from "@material-ui/lab/Alert";
+  makeStyles,
+} from '@material-ui/core';
+import Alert, { type Color } from '@material-ui/lab/Alert';
+import logo from '../../../static/logo.png';
+import Copyright from './Copyright';
+import LocaleSelect from './LocaleSelect';
 
 export type LayoutProps = {
   i18nEnabled: boolean;
@@ -23,10 +23,10 @@ export type LayoutProps = {
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   logo: {
     width: 200,
@@ -39,9 +39,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(2),
   },
   footer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 }));
 

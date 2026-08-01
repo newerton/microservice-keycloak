@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import reportWebVitals from "../../../../reportWebVitals";
-import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
-import theme from "../../../../theme";
-import { Layout, LayoutProps } from "../../components/Layout";
-import LoginForm, { LoginFormProps } from "../../components/LoginForm";
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import reportWebVitals from '../../../../reportWebVitals';
+import theme from '../../../../theme';
+import { Layout, type LayoutProps } from '../../components/Layout';
+import LoginForm, { type LoginFormProps } from '../../components/LoginForm';
 
 declare const layoutProps: LayoutProps;
 declare const pageProps: LoginFormProps;
@@ -18,7 +18,7 @@ ReactDOM.render(
       </Layout>
     </MuiThemeProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

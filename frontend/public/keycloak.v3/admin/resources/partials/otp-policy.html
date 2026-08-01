@@ -44,7 +44,7 @@
         <div class="form-group">
             <label class="col-md-2 control-label" for="lookAhead">{{:: 'look-ahead-window' | translate}}</label>
             <div class="col-md-6">
-                <input class="form-control" type="number" required min="0" max="120" id="lookAhead" name="lookAhead" data-ng-model="realm.otpPolicyLookAheadWindow" autofocus>
+                <input class="form-control" type="number" required min="0" max="120" id="lookAhead" name="lookAhead" data-ng-model="realm.otpPolicyLookAheadWindow" >
             </div>
             <kc-tooltip>{{:: 'otp.look-ahead-window.tooltip' | translate}}</kc-tooltip>
         </div>
@@ -52,7 +52,7 @@
         <div class="form-group" data-ng-if="realm.otpPolicyType == 'hotp'">
             <label class="col-md-2 control-label" for="counter">{{:: 'initial-counter' | translate}}</label>
             <div class="col-md-6">
-                <input class="form-control" type="number" data-ng-required="realm.otpPolicyType == 'hotp'" min="1" max="120" id="counter" name="counter" data-ng-model="realm.otpPolicyInitialCounter" autofocus>
+                <input class="form-control" type="number" data-ng-required="realm.otpPolicyType == 'hotp'" min="1" max="120" id="counter" name="counter" data-ng-model="realm.otpPolicyInitialCounter" >
             </div>
             <kc-tooltip>{{:: 'otp.initial-counter.tooltip' | translate}}</kc-tooltip>
         </div>

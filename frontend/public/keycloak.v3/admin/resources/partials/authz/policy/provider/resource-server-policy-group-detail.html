@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="name">{{:: 'name' | translate}} <span class="required">*</span></label>
                 <div class="col-sm-6">
-                    <input class="form-control" type="text" id="name" name="name" data-ng-model="policy.name" autofocus required data-ng-blur="checkNewNameAvailability()">
+                    <input class="form-control" type="text" id="name" name="name" data-ng-model="policy.name" required data-ng-blur="checkNewNameAvailability()">
                 </div>
                 <kc-tooltip>{{:: 'authz-policy-name.tooltip' | translate}}</kc-tooltip>
             </div>
@@ -67,7 +67,7 @@
                         node-children="subGroups" >
                     </div>
                     <button data-ng-click="selectGroup(tree.currentNode)" id="selectGroup" class="btn btn-primary" data-ng-disabled="tree.currentNode == null">Select</button>
-                    <input class="form-control" type="text" id="selectedGroups" name="selectedGroups" data-ng-model="noop" data-ng-required="selectedGroups.length <= 0" autofocus required data-ng-show="false">
+                    <input class="form-control" type="text" id="selectedGroups" name="selectedGroups" data-ng-model="noop" data-ng-required="selectedGroups.length <= 0" required data-ng-show="false">
                 </div>
                 <kc-tooltip>{{:: 'authz-policy-user-users.tooltip' | translate}}</kc-tooltip>
             </div>

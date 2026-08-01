@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require('node:fs');
 const fsExtra = require('fs-extra');
-const path = require('path');
+const path = require('node:path');
 const paths = require('../config/paths');
 
 module.exports = () => {
@@ -10,7 +10,7 @@ module.exports = () => {
     if (fs.existsSync(jsDir)) {
       fsExtra.copySync(
         path.join(jsDir),
-        path.join(paths.appBuild, themeDir, 'common', 'resources', 'js')
+        path.join(paths.appBuild, themeDir, 'common', 'resources', 'js'),
       );
     }
 
@@ -18,7 +18,7 @@ module.exports = () => {
     if (fs.existsSync(cssDir)) {
       fsExtra.copySync(
         path.join(cssDir),
-        path.join(paths.appBuild, themeDir, 'common', 'resources', 'css')
+        path.join(paths.appBuild, themeDir, 'common', 'resources', 'css'),
       );
     }
   }

@@ -6,37 +6,37 @@ import {
   FormControlLabel,
   Grid,
   Link,
-  makeStyles,
   TextField,
   Typography,
-} from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import FacebookIcon from "@material-ui/icons/Facebook";
+  makeStyles,
+} from '@material-ui/core';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     marginBottom: theme.spacing(3),
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    padding: "14px",
+    padding: '14px',
   },
   buttonSocialNetwork: {
-    padding: "14px",
+    padding: '14px',
   },
   divider: {
     margin: theme.spacing(0, 0, 2, 0),
-    backgroundColor: "rgba(255,255,255, 0.2)",
+    backgroundColor: 'rgba(255,255,255, 0.2)',
   },
 }));
 
@@ -51,13 +51,13 @@ type IconsProps = {
 const icons: IconsProps = {
   github: {
     icon: <GitHubIcon />,
-    textColor: "#fff",
-    backgroundColor: "#000",
+    textColor: '#fff',
+    backgroundColor: '#000',
   },
   facebook: {
     icon: <FacebookIcon />,
-    textColor: "#fff",
-    backgroundColor: "#000",
+    textColor: '#fff',
+    backgroundColor: '#000',
   },
 };
 
@@ -212,7 +212,7 @@ const LoginForm: React.FunctionComponent<LoginFormProps> = (props) => {
             <Grid item>
               {registrationAllowed && (
                 <>
-                  {registrationNoAccount}{" "}
+                  {registrationNoAccount}{' '}
                   <Link href={registrationUrl} variant="body2">
                     {registrationLabel}
                   </Link>
