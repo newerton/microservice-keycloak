@@ -1507,12 +1507,9 @@ module.controller('GlobalCtrl', (e, _r, t, a, n, _l, i, o) => {
       });
     }),
       (e.setNotBeforeNow = () => {
-        r.update(
-          { realm: a.realm, notBefore: new Date().getTime() / 1e3 },
-          () => {
-            o.success('Not Before set for realm.'), c();
-          },
-        );
+        r.update({ realm: a.realm, notBefore: Date.now() / 1e3 }, () => {
+          o.success('Not Before set for realm.'), c();
+        });
       }),
       (e.pushRevocation = () => {
         t.save({ realm: a.realm }, (e) => {

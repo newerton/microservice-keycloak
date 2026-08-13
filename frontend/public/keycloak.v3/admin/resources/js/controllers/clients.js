@@ -975,7 +975,7 @@
         return (
           !angular.equals(e.client, e.clientEdit) ||
           !!(e.newRedirectUri && e.newRedirectUri.length > 0) ||
-            !!(e.newWebOrigin && e.newWebOrigin.length > 0) ||
+          !!(e.newWebOrigin && e.newWebOrigin.length > 0) ||
           !!(e.newRequestUri && e.newRequestUri.length > 0)
         );
       }
@@ -1620,7 +1620,7 @@
         });
     }),
       (e.setNotBeforeNow = () => {
-        (e.client.notBefore = new Date().getTime() / 1e3),
+        (e.client.notBefore = Date.now() / 1e3),
           i.update({ realm: t.realm, client: e.client.id }, e.client, () => {
             a.success('Not Before set for client.'), s();
           });
