@@ -11,13 +11,13 @@
 	"dependencies": {
 		"@types/express-session": "^1.19.0",
 		"@types/jest": "^30.0.0",
-		"@types/node": "^26.1.2",
+		"@types/node": "^26.4.1",
 		"@types/selenium-webdriver": "^4.35.6",
-		"chromedriver": "^151.0.2",
+		"chromedriver": "^151.0.5",
 		"express-session": "^1.19.0",
-		"jest": "^30.4.2",
+		"jest": "^30.5.1",
 		"keycloak-connect": "^26.1.1",
-		"selenium-webdriver": "^4.46.0",
+		"selenium-webdriver": "^4.48.0",
 		"ts-jest": "^29.4.12",
 		"ts-node": "^10.9.2",
 		"typescript": "^6.0.3"
@@ -33,6 +33,6 @@
 		"unrs-resolver@1.12.2": true
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5.6"
+		"@biomejs/biome": "^2.5.12"
 	}
 }
